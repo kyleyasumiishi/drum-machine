@@ -1,0 +1,7 @@
+#drum-machine {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 15% repeat(3, 1fr) 15%;
+}
+
+/*# sourceMappingURL=App.css.map */
