@@ -14,7 +14,5 @@ describe("Display component", () => {
     const wrapper = shallow(<Display text="Snare" />);
     const text = wrapper.find("#text");
     expect(text.text()).toEqual("Snare");
-    // console.log(text);
-    // expect(text).toHaveTextContent("Snare");
   });
 })
