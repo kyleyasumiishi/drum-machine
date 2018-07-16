@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import Instrument from "../components/Instrument";
+import drumsIcon from "../../logos/drums-icon.png";
+import pianoIcon from "../../logos/piano-icon.png";
+import ukuleleIcon from "../../logos/ukulele-icon.png";
 
 class InstrumentContainer extends Component {
   constructor(props) {
@@ -7,10 +10,10 @@ class InstrumentContainer extends Component {
   }
   render() {
     return (
-      <div>
-        <Instrument id="drums" />
-        <Instrument id="piano" />
-        <Instrument id="ukulele" />
+      <div className="instrument-container">
+        <Instrument id="drums" src={drumsIcon} />
+        <Instrument id="piano" src={pianoIcon} />
+        <Instrument id="ukulele" src={ukuleleIcon} />
       </div>
     );
   }

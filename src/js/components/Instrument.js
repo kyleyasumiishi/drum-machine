@@ -3,7 +3,7 @@ import React from "react";
 const Instrument = props => {
   return (
     <button id={props.id} className="instrument">
-      <img />
+      <img src={props.src} />
     </button>
   );
 }

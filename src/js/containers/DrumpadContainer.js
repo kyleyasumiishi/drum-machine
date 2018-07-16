@@ -7,7 +7,7 @@ class DrumpadContainer extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="drumpad-container">
         {/* TODO: change id's to describe the audio clip triggered based on instrument selection via props */}
         <Drumpad id="heater-1" text="Q" />
         <Drumpad id="heater-2" text="W" />

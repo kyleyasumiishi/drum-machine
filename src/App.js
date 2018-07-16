@@ -9,7 +9,6 @@ class App extends Component {
   render() {
     return (
       <div id="drum-machine">
-        Hello drum machine
         <DisplayContainer />
         <DrumpadContainer />
         <InstrumentContainer />

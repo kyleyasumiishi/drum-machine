@@ -7,7 +7,9 @@ class DisplayContainer extends Component {
   }
   render() {
     return (
-      <Display text="DisplayContainer: Replace with display message from store" />
+      <div className="display-container">
+        <Display text="This is the display" />
+      </div>
     );
   }
 }
