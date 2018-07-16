@@ -3,6 +3,9 @@ import Instrument from "../components/Instrument";
 import drumsIcon from "../../logos/drums-icon.png";
 import pianoIcon from "../../logos/piano-icon.png";
 import ukuleleIcon from "../../logos/ukulele-icon.png";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { selectInstrument } from "../actions/selectInstrument";
 
 class InstrumentContainer extends Component {
   constructor(props) {
@@ -19,4 +22,20 @@ class InstrumentContainer extends Component {
   }
 }
 
-export default InstrumentContainer;
+function mapStateToProps(state) {
+  return {
+    instrument: state.instrument
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    selectInstrument: function(event) {
+      dispatch(selectInstrument(event));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(InstrumentContainer);
+
+
