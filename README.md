@@ -10,6 +10,7 @@ Some of the web development skills I hope to improve through building this app i
 - CSS Grid
 - React & Redux
 - Media queries
+- React PropTypes
 
 ## About
 
