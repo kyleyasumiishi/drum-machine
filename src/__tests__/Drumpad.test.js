@@ -34,4 +34,16 @@ describe("Drumpad component", () => {
     wrapper = shallow(<Drumpad text="Q" />);
     expect(wrapper.text()).toMatch(regex);
   });
+  it("contains an HTML5 audio element", () => {
+    const wrapper = shallow(<Drumpad />);
+    expect(wrapper.find("audio").exists()).toBeTruthy();
+  });
+  it("contains an HTML5 audio element with a className='clip'", () => {
+    const wrapper = shallow(<Drumpad />);
+    expect(wrapper.find("audio").hasClass("clip")).toBeTruthy();
+  });
+  it("contains an HTML5 audio element with an id equal to the inner text of its parent", () => {
+    const wrapper = shallow(<Drumpad text="Q" />);
+    expect(wrapper.find("audio").find("#Q").exists()).toBeTruthy();
+  });
 });
