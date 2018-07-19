@@ -48,8 +48,14 @@ describe("Drumpad component", () => {
   });
   it("has an onClick method", () => {
     const playSound = jest.fn();
-    const wrapper = shallow(<Drumpad playSound={playSound} />);
+    const wrapper = shallow(<Drumpad click={playSound} />);
     wrapper.simulate("click");
+    expect(playSound).toHaveBeenCalledTimes(1);
+  });
+  it("has an onKeyDown method", () => {
+    const playSound = jest.fn();
+    const wrapper = shallow(<Drumpad keydown={playSound} />);
+    wrapper.simulate("keydown");
     expect(playSound).toHaveBeenCalledTimes(1);
   });
 });
