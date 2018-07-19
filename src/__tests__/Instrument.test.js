@@ -22,4 +22,11 @@ describe("Instrument component", () => {
     const wrapper = shallow(<Instrument />);
     expect(wrapper.find("img").exists()).toBeTruthy();
   });
+  it("has an onClick method", () => {
+    // when click on icon, it will update state
+    const selectInstrument = jest.fn();
+    const wrapper = shallow(<Instrument selectInstrument={selectInstrument}/>);
+    wrapper.simulate("click");
+    expect(selectInstrument).toHaveBeenCalledTimes(1);
+  });
 });

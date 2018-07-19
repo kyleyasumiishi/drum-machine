@@ -46,4 +46,10 @@ describe("Drumpad component", () => {
     const wrapper = shallow(<Drumpad text="Q" />);
     expect(wrapper.find("audio").find("#Q").exists()).toBeTruthy();
   });
+  it("has an onClick method", () => {
+    const playSound = jest.fn();
+    const wrapper = shallow(<Drumpad playSound={playSound} />);
+    wrapper.simulate("click");
+    expect(playSound).toHaveBeenCalledTimes(1);
+  });
 });
