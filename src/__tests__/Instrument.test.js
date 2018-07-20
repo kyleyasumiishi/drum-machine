@@ -25,7 +25,7 @@ describe("Instrument component", () => {
   it("has an onClick method", () => {
     // when click on icon, it will update state
     const selectInstrument = jest.fn();
-    const wrapper = shallow(<Instrument selectInstrument={selectInstrument}/>);
+    const wrapper = shallow(<Instrument handleClick={selectInstrument} />);
     wrapper.simulate("click");
     expect(selectInstrument).toHaveBeenCalledTimes(1);
   });

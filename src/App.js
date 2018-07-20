@@ -1,63 +1,79 @@
-import React, { Component } from 'react';
-import './css/App.css';
-import DisplayContainer from "./js/containers/DisplayContainer";
+import React, { Component } from "react";
+import "./css/App.css";
+import Display from "./js/components/Display";
 import DrumpadContainer from "./js/containers/DrumpadContainer";
 import InstrumentContainer from "./js/containers/InstrumentContainer";
-import Instrument from './js/components/Instrument';
-
-const KEYS = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"];
+import { connect } from "react-redux";
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      displayMessage: "Ready to Rock!"
+    };
     this.play = this.play.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
-    this.changeBackgroundColor = this.changeBackgroundColor.bind(this);
+    this.updateStyles = this.updateStyles.bind(this);
   }
-  
+
   componentWillMount() {
     document.addEventListener("keydown", this.handleKeyDown);
   }
 
   handleKeyDown(event) {
     const key = event.key.toUpperCase();
-    if (KEYS.indexOf(key) > -1) {
+    if (this.props.keys.indexOf(key) > -1) {
       const button = document.getElementById(key).parentNode;
       button.click();
     }
   }
-  
-  changeBackgroundColor(element) {
-    element.style.backgroundColor = "blue";
-    setTimeout(() => {
-      element.style.backgroundColor = "transparent"
-    }, 100);
+
+  updateStyles(element, styles) {
+    Object.keys(styles).forEach(property => {
+      element.style[property] = styles[property];
+    });
   }
 
   handleOnClick(event) {
     const button = document.getElementById(event.target.id);
-    this.changeBackgroundColor(button);
     const audio = button.firstElementChild;
+    this.setState({
+      displayMessage: this.props.instrument[audio.id].display
+    });
+    this.updateStyles(button, this.props.activeDrumPad);
+    setTimeout(() => {
+      this.updateStyles(button, this.props.inactiveDrumPad);
+    }, 100);
     this.play(audio);
   }
 
   play(audio) {
-    console.log(audio);
-    audio.pause();
     audio.currentTime = 0;
     audio.play();
   }
-  
+
   render() {
     return (
       <div id="drum-machine">
-        <DisplayContainer />
+        <Display displayMessage={this.state.displayMessage} />
         <DrumpadContainer click={this.handleOnClick} />
         <InstrumentContainer />
       </div>
-    ); 
+    );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    instrument: state.instrument,
+    activeDrumPad: state.activeDrumPad,
+    inactiveDrumPad: state.inactiveDrumPad,
+    keys: state.keys
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);

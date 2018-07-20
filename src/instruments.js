@@ -23,7 +23,7 @@ export const DRUMS = {
     display: "Heater 1",
     id: "heater-1",
     src: Heater1
-  }, 
+  },
   W: {
     display: "Heater 2",
     id: "heater-2",
@@ -48,7 +48,7 @@ export const DRUMS = {
     display: "Open HH",
     id: "open-hh",
     src: OpenHH
-  }, 
+  },
   Z: {
     display: "Kick n' Hat",
     id: "kick-hat",
@@ -64,7 +64,7 @@ export const DRUMS = {
     id: "closed-hh",
     src: ClosedHH
   }
-}
+};
 
 export const PIANO = {
   instrument: "piano",
@@ -72,7 +72,7 @@ export const PIANO = {
     display: "Chord 1",
     id: "chord-1",
     src: Chord1
-  }, 
+  },
   W: {
     display: "Chord 2",
     id: "chord-2",
@@ -97,7 +97,7 @@ export const PIANO = {
     display: "Closed HH",
     id: "closed-hh",
     src: ClosedHH
-  }, 
+  },
   Z: {
     display: "Punchy Kick",
     id: "punchy-kick",
@@ -113,7 +113,7 @@ export const PIANO = {
     id: "snare",
     src: Kick
   }
-}
+};
 
 // TODO: Replace src with ukulele sounds
 export const UKULELE = {
@@ -122,7 +122,7 @@ export const UKULELE = {
     display: "Heater 1",
     id: "heater-1",
     src: Heater1
-  }, 
+  },
   W: {
     display: "Heater 2",
     id: "heater-2",
@@ -147,7 +147,7 @@ export const UKULELE = {
     display: "Open HH",
     id: "open-hh",
     src: OpenHH
-  }, 
+  },
   Z: {
     display: "Kick n' Hat",
     id: "kick-hat",
@@ -163,4 +163,4 @@ export const UKULELE = {
     id: "closed-hh",
     src: ClosedHH
   }
-}
+};

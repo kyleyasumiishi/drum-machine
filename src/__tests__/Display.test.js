@@ -10,9 +10,9 @@ describe("Display component", () => {
     const wrapper = shallow(<Display />);
     expect(wrapper.find("#display").exists()).toBeTruthy();
   });
-  it("displays props.text within 'text' element", () => {
-    const wrapper = shallow(<Display text="Snare" />);
+  it("displays props.displayMessage within 'text' element", () => {
+    const wrapper = shallow(<Display displayMessage="Snare" />);
     const text = wrapper.find("#text");
     expect(text.text()).toEqual("Snare");
   });
-})
+});

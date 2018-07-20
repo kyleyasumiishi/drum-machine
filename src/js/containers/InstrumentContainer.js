@@ -3,26 +3,38 @@ import Instrument from "../components/Instrument";
 import drumsIcon from "../../logos/drums-icon.png";
 import pianoIcon from "../../logos/piano-icon.png";
 import ukuleleIcon from "../../logos/ukulele-icon.png";
-import { bindActionCreators } from "redux"
 import { connect } from "react-redux";
 import { selectInstrument } from "../actions/selectInstrument";
 
 class InstrumentContainer extends Component {
   constructor(props) {
     super(props);
-    this.click = this.click.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  click(e) {
-    console.log(e.target.parentNode);
+  handleClick(event) {
+    const nodeList = document.querySelectorAll(".instrument");
+    for (let i = 0; i < nodeList.length; i++) {
+      const instrumentButton = nodeList[i];
+      instrumentButton.style.backgroundColor = "transparent";
+    }
+    const selectedButton = event.target.parentNode;
+    console.log(selectedButton);
+    selectedButton.style.backgroundColor = "blue";
+    this.props.selectInstrument(event);
+    return;
   }
 
   render() {
     return (
       <div className="instrument-container">
-        <Instrument id="drums" src={drumsIcon} selectInstrument={this.props.selectInstrument} click={this.props.selectInstrument} />
-        <Instrument id="piano" src={pianoIcon} selectInstrument={this.props.selectInstrument} click={this.click} />
-        <Instrument id="ukulele" src={ukuleleIcon} selectInstrument={this.props.selectInstrument} click={this.click} />
+        <Instrument id="drums" src={drumsIcon} handleClick={this.handleClick} />
+        <Instrument id="piano" src={pianoIcon} handleClick={this.handleClick} />
+        <Instrument
+          id="ukulele"
+          src={ukuleleIcon}
+          handleClick={this.handleClick}
+        />
       </div>
     );
   }
@@ -39,15 +51,10 @@ function mapDispatchToProps(dispatch) {
     selectInstrument: function(event) {
       dispatch(selectInstrument(event));
     }
-  }
+  };
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({
-//     selectInstrument: selectInstrument
-//   }, dispatch);
-// }
-
-export default connect(mapStateToProps, mapDispatchToProps)(InstrumentContainer);
-
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InstrumentContainer);
