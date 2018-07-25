@@ -1,53 +1,143 @@
-html,
+@media (max-width: 420px) {
+  html,
 body,
 #root,
 #drum-machine {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
 
-#display {
-  width: 100%;
-  height: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  #display {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-#text {
-  width: 70%;
-  border: 1px solid black;
-  margin: auto;
-  padding: 5%;
-  text-align: center;
-}
+  #text {
+    width: 70%;
+    max-height: 70%;
+    border: 1px solid black;
+    margin: auto;
+    padding: 5%;
+    text-align: center;
+    box-sizing: border-box;
+  }
 
-.drumpad-container {
-  width: 90%;
-  margin: auto;
-  height: 70%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-gap: 10px;
-}
+  .drumpad-container {
+    width: 90%;
+    margin: auto;
+    height: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+    box-sizing: border-box;
+  }
 
-.drum-pad {
-  border: 1px solid black;
-  background-color: transparent;
-}
+  .drum-pad {
+    border: 1px solid black;
+    background-color: transparent;
+  }
 
-.instrument-container {
-  width: 100%;
-  height: 15%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
+  .instrument-container {
+    width: 90%;
+    height: 15%;
+    padding-top: 2%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: auto;
+    box-sizing: border-box;
+  }
 
-.instrument img {
-  height: 50%;
-  width: 50%;
+  .instrument {
+    background-color: white;
+    -webkit-appearance: none;
+    border: none;
+  }
+
+  .instrument img {
+    height: 50%;
+    width: 50%;
+  }
+}
+@media (min-width: 421px) {
+  html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #drum-machine {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    max-height: 800px;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    border: 5px solid black;
+    padding: 5%;
+  }
+
+  .drumpad-container {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+
+  .drum-pad {
+    max-width: 150px;
+    border: 1px solid black;
+    background-color: transparent;
+  }
+
+  #display {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #text {
+    width: 90%;
+    border: 1px solid black;
+    margin-left: 10%;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  .instrument-container {
+    width: 90%;
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+  }
+
+  .instrument {
+    height: 50%;
+    background-color: white;
+    -webkit-appearance: none;
+    border: 2px solid black;
+  }
+
+  .instrument img {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

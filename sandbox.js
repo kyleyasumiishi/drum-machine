@@ -1,9 +1,0 @@
-/*
-
-update background of logo based on state and click event
-
-
-
-
-
-*/

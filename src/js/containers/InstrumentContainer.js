@@ -12,14 +12,19 @@ class InstrumentContainer extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  // could just change className and have a separate css rule
   handleClick(event) {
+    // console.log("event.target:", event.target.tagName);
     const nodeList = document.querySelectorAll(".instrument");
     for (let i = 0; i < nodeList.length; i++) {
       const instrumentButton = nodeList[i];
       instrumentButton.style.backgroundColor = "transparent";
     }
-    const selectedButton = event.target.parentNode;
-    console.log(selectedButton);
+
+    // if click image, selectedButton is button. If click button, selectedButton is container
+    const selectedButton =
+      event.target.tagName === "IMG" ? event.target.parentNode : event.target;
+    console.log("selectedButton:", selectedButton);
     selectedButton.style.backgroundColor = "blue";
     this.props.selectInstrument(event);
     return;
