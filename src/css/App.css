@@ -175,7 +175,7 @@ body,
     width: 100%;
   }
 }
-@media (min-width: 421px) and (max-height: 449px) {
+@media (min-width: 421px) and (max-height: 449px) and (orientation: landscape) {
   html,
 body,
 #root {
