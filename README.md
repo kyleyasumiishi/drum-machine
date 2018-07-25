@@ -5,6 +5,10 @@ This repository contains my source code for a drum machine web app I built with 
 <p align="center">
 <a href="https://kyleyasumiishi.github.io/drum-machine/"><img src="https://gdurl.com/bn_J" alt="Screenshot of drum machine app" style="width: 80%"></a></p>
 
+## Next Steps
+
+TODO: I still need to record chords on the ukulele and update the app to play these recordings when users select the ukulele instrument icon.
+
 ## About
 
 I built this drum machine project as one of freeCodeCamp's front-end libraries projects.
