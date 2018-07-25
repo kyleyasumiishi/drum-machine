@@ -9,23 +9,18 @@ import { selectInstrument } from "../actions/selectInstrument";
 class InstrumentContainer extends Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
-  // could just change className and have a separate css rule
-  handleClick(event) {
-    // console.log("event.target:", event.target.tagName);
+  handleOnClick(event) {
     const nodeList = document.querySelectorAll(".instrument");
     for (let i = 0; i < nodeList.length; i++) {
       const instrumentButton = nodeList[i];
-      instrumentButton.style.backgroundColor = "transparent";
+      instrumentButton.style.backgroundColor = this.props.inactiveButton.backgroundColor;
     }
-
-    // if click image, selectedButton is button. If click button, selectedButton is container
     const selectedButton =
       event.target.tagName === "IMG" ? event.target.parentNode : event.target;
-    console.log("selectedButton:", selectedButton);
-    selectedButton.style.backgroundColor = "blue";
+    selectedButton.style.backgroundColor = this.props.activeButton.backgroundColor;
     this.props.selectInstrument(event);
     return;
   }
@@ -33,13 +28,9 @@ class InstrumentContainer extends Component {
   render() {
     return (
       <div className="instrument-container">
-        <Instrument id="drums" src={drumsIcon} handleClick={this.handleClick} />
-        <Instrument id="piano" src={pianoIcon} handleClick={this.handleClick} />
-        <Instrument
-          id="ukulele"
-          src={ukuleleIcon}
-          handleClick={this.handleClick}
-        />
+        <Instrument id="drums" src={drumsIcon} click={this.handleOnClick} />
+        <Instrument id="piano" src={pianoIcon} click={this.handleOnClick} />
+        <Instrument id="ukulele" src={ukuleleIcon} click={this.handleOnClick} />
       </div>
     );
   }
@@ -47,7 +38,9 @@ class InstrumentContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    instrument: state.instrument
+    instrument: state.instrument,
+    activeButton: state.activeButton,
+    inactiveButton: state.inactiveButton
   };
 }
 

@@ -41,9 +41,9 @@ class App extends Component {
     this.setState({
       displayMessage: this.props.instrument[audio.id].display
     });
-    this.updateStyles(button, this.props.activeDrumPad);
+    this.updateStyles(button, this.props.activeButton);
     setTimeout(() => {
-      this.updateStyles(button, this.props.inactiveDrumPad);
+      this.updateStyles(button, this.props.inactiveButton);
     }, 100);
     this.play(audio);
   }
@@ -67,8 +67,8 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     instrument: state.instrument,
-    activeDrumPad: state.activeDrumPad,
-    inactiveDrumPad: state.inactiveDrumPad,
+    activeButton: state.activeButton,
+    inactiveButton: state.inactiveButton,
     keys: state.keys
   };
 }
