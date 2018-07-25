@@ -1,20 +1,13 @@
 # Drum Machine
 
-I'm currently a drum machine app with React & Redux! This app will contain nine drum pad elements that will trigger an audio clip when the element is clicked. Users will also have the option to switch between multiple instruments, including drums, piano, and ukulele.
+This repository contains my source code for a drum machine web app I built with React & Redux!
 
-This app will be mobile responsive and designed for mobile users first, as I'll likely use this app and show it to others on my iPhone.
-
-Some of the web development skills I hope to improve through building this app include:
-
-- Sass
-- CSS Grid
-- React & Redux
-- Media queries
-- React PropTypes
+<p align="center">
+<a href="https://kyleyasumiishi.github.io/drum-machine/"><img src="https://gdurl.com/bn_J" alt="Screenshot of drum machine app" style="width: 80%"></a></p>
 
 ## About
 
-I'm building this drum machine project as one of freeCodeCamp's front-end libraries projects.
+I built this drum machine project as one of freeCodeCamp's front-end libraries projects.
 
 freeCodeCamp is a non-profit organization that consists of an interactive learning web platform, an online community forum, chat rooms, Medium publications and local organizations that intend to make learning web development accessible to anyone.
 
@@ -67,7 +60,28 @@ One of my primary goals for each freeCodeCamp project and set of challenges is t
 
 Here are a few <em>new concepts</em> I learned and practiced by creating this React/Redux app:
 
+- Sass variables
+- HTML5 `audio` element
+- Using `Array.map()` to dynamically render elements in React
+- Initializing state in Redux
+- Several DOM methods and properties, including `document.querySelectorAll()` and `document.getElementsByTagName()`
+- Several Event methods and properties, including `event.target.id`, `event.target.className`, `event.target.tagName`, `event.target`, and `event.target.parentNode`
+- NodeList object
+- Creating Favicon
+- Changing inline CSS conditionally based on application state
+- The `:focus` CSS pseudo-class
+
 ## Technologies Used
+
+- React
+- Redux
+- JavaScript
+- CSS
+- HTML
+- Node.js
+- Git
+- npm
+- yarn
 
 ## Authors
 
